@@ -79,6 +79,15 @@ witness.
 - [independent-us-food-makers](https://github.com/vince-gonzalez/independent-us-food-makers) — open datasets, including named halal and kosher certification
 - [poticas.com](https://poticas.com) — the history and record of potica, a Slovenian nut roll, and a paper on its transmission in America
 
+## Games
+
+| | |
+|---|---|
+| [LOCK IN](https://trailer-load.com) | a browser freight-loading simulator that plays like a game and trains like a course. Warehouse loading, weight distribution, axle limits |
+| [PROMPT](https://prompt.f-keys.com) | a Discord party game, played in reverse: everyone sees an answer an AI gave, and writes the question that must have caused it |
+| [DaisuPop](https://dp.f-keys.com) | a shared dice popper as a Discord Activity, synced live so the pop happens for everyone at once |
+| MICDROP | an open-mic comedy arena built in Fortnite UEFN. Request the mic, get 120 seconds, and the audience votes you off with tomatoes |
+
 ## Software
 
 | | |
