@@ -8,42 +8,92 @@
 ║            ╚██████╔╝╚██████╔╝██║ ╚████║███████╗██║  ██║███████╗███████╗███████╗            ║
 ║             ╚═════╝  ╚═════╝ ╚═╝  ╚═══╝╚══════╝╚═╝  ╚═╝╚══════╝╚══════╝╚══════╝            ║
 ║                                                                                            ║
-║                           axiom provenance for formal libraries                            ║
+║                                   measured, not asserted                                   ║
 ║                                                                                            ║
 ╚════════════════════════════════════════════════════════════════════════════════════════════╝
 ```
 
-`#print axioms` will tell you that a theorem depends on the axiom of choice. It
-will not tell you whether the theorem needed it.
+A lot of things get claimed and never checked. Formal libraries record which
+axioms a theorem used but not which it needed. Geometric bounds get quoted from
+papers nobody re-ran. Colour vision tests get delivered through screens nobody
+measured. Published records get cited without anyone confirming what is in
+them.
 
-I build tools that answer the second question, then go and fix the answers I
-don't like.
+I build the instruments that check, and then I go and use them. Below is most
+of it. 53 deposited works, 9 packages, and a handful of sites that are up.
 
-## set.mm
+## Formal mathematics
+
+Which step of a proof spent an axiom, how far the spending reaches, and whether
+the theorem needed it.
+
+| | |
+|---|---|
+| [gonzalgo](https://github.com/vince-gonzalez/gonzalgo) | axiom provenance for Lean 4 and Metamath |
+| [mmforge](https://github.com/vince-gonzalez/mmforge) | avoidable axiom dependencies in Metamath databases |
+| [loadbearing](https://github.com/vince-gonzalez/loadbearing) | what a claim asserts, against what its derivation used |
 
 Five changes merged into [metamath/set.mm](https://github.com/metamath/set.mm)
-since 17 August 2026. Each removes a dependence on the axiom of choice from a
-theorem whose own hypotheses already ruled it out.
+so far, each removing a dependence on the axiom of choice from a theorem whose
+own hypotheses already ruled it out: `difelsiga`, `fnrndomnum`, `madefi`,
+`sigaclci`, `omeiunle`. In one of them the entire cause was statement order.
 
-- [#5442](https://github.com/metamath/set.mm/pull/5442) `difelsiga` — a sigma-algebra is closed under class difference. The proof went through countable intersection, where choice enters, because pairwise union happened to be stated *after* it in the file. Statement order was the whole cause.
-- [#5443](https://github.com/metamath/set.mm/pull/5443) `fnrndomnum` — the well-orderable-domain form of `fnrndomg`. The library had the equivalent for `fodomg` and nothing for this one.
-- [#5445](https://github.com/metamath/set.mm/pull/5445) `madefi` — the set in question is finite, and the proof had already proved it finite a few steps earlier.
-- [#5447](https://github.com/metamath/set.mm/pull/5447) `sigaclci` — reached the general countability lemma instead of the one for an indexed family.
-- [#5448](https://github.com/metamath/set.mm/pull/5448) `omeiunle` — indexes over an upper integer set, which is countable without assuming anything.
+I do not total those. Where two repairs feed the same subtree each reads near
+zero alone, and the subtree only leaves the cone when the last of them goes.
 
-I am not going to total those. Where two repairs feed the same subtree each one
-reads near zero alone, and the subtree only leaves the cone when the last of
-them goes, so a sum is wrong in both directions. The number that means anything
-is the counterfactual over the whole set at once.
+## Certified computation
 
-## Tools
+Bounds that hold because a machine checked them, not because a paper said so.
 
-| | | |
-|---|---|---|
-| [gonzalgo](https://github.com/vince-gonzalez/gonzalgo) | axiom provenance for Lean 4 and Metamath: which step of a proof introduced an axiom | [PyPI](https://pypi.org/project/gonzalgo/) |
-| [mmforge](https://github.com/vince-gonzalez/mmforge) | avoidable axiom dependencies in Metamath databases | [PyPI](https://pypi.org/project/mmforge/) |
-| [loadbearing](https://github.com/vince-gonzalez/loadbearing) | what a claim asserts, against what its derivation actually used | [PyPI](https://pypi.org/project/loadbearing/) |
-| [certivl](https://github.com/vince-gonzalez/certivl) | exact rational and certified interval arithmetic | [PyPI](https://pypi.org/project/certivl/) |
+- exact rational and interval arithmetic — [certivl](https://github.com/vince-gonzalez/certivl)
+- the Lebesgue universal cover, opaque barriers, and Fejes Toth's point-goalie problem — [certified-covers](https://github.com/vince-gonzalez/certified-covers)
+- odd perfect numbers: a congruence obstruction on the Euler prime, and an exact calculator for Norton's abundancy bound
+- an independent verification of an 11948-point kissing configuration, and maximality results for the Cohn-Li constructions
+
+## The Voynich manuscript
+
+Seven papers on Voynichese as a positionally constrained system, with the null
+tests and positive controls that most of the field skips. Structure only. I make
+no claim about what any of it means.
+
+## Colour vision
+
+Pseudoisochromatic plates generated procedurally in the browser, and the finding
+that plate design type is recoverable from delivered colour.
+
+[opticquiz.com](https://opticquiz.com) · [ishihara](https://github.com/vince-gonzalez/ishihara)
+
+## Classification, evidence, and the published record
+
+A dimensional address grammar for classification, and what it takes to admit
+machine-generated evidence in a proceeding without pretending a model is a
+witness.
+
+[modulign.org](https://modulign.org) · [epistemend.org](https://epistemend.org) ·
+[apriori](https://github.com/vince-gonzalez/apriori) ·
+[authorecon](https://pypi.org/project/authorecon/)
+
+## Food, and where it comes from
+
+- [5best2buy.com](https://5best2buy.com) — shelves for independent American food makers
+- [independent-us-food-makers](https://github.com/vince-gonzalez/independent-us-food-makers) — open datasets, including named halal and kosher certification
+- [poticas.com](https://poticas.com) — the history and record of potica, a Slovenian nut roll, and a paper on its transmission in America
+
+## Software
+
+| | |
+|---|---|
+| [keyj](https://pypi.org/project/keyj/) | guitar tablature to notes, rendered and played |
+| [remapwrap](https://pypi.org/project/remapwrap/) | a phone as a control surface, no app install |
+| [qv.f-keys.com](https://qv.f-keys.com) | live anonymous ballots |
+| [tipstreams.com](https://tipstreams.com) | multi-method tipping, also an embeddable widget |
+| [dogefundme.com](https://dogefundme.com) | isometric mini-golf, zero dependencies |
+
+## Packages
+
+`gonzalgo` · `mmforge` · `loadbearing` · `certivl` · `ishihara` · `apriori` ·
+`authorecon` · `remapwrap` · `keyj` — all on PyPI.
+`@f-keys/tip-widget` on npm.
 
 ## Elsewhere
 
