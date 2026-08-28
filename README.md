@@ -33,10 +33,11 @@ the theorem needed it.
 | [mmforge](https://github.com/vince-gonzalez/mmforge) | avoidable axiom dependencies in Metamath databases |
 | [loadbearing](https://github.com/vince-gonzalez/loadbearing) | what a claim asserts, against what its derivation used |
 
-Five changes merged into [metamath/set.mm](https://github.com/metamath/set.mm)
+Six changes merged into [metamath/set.mm](https://github.com/metamath/set.mm)
 so far, each removing a dependence on the axiom of choice from a theorem whose
 own hypotheses already ruled it out: `difelsiga`, `fnrndomnum`, `madefi`,
-`sigaclci`, `omeiunle`. In one of them the entire cause was statement order.
+`sigaclci`, `omeiunle`, and the `fnct`/`dmct`/`ffsrn` family. In one of them
+the entire cause was statement order.
 
 I do not total those. Where two repairs feed the same subtree each reads near
 zero alone, and the subtree only leaves the cone when the last of them goes.
@@ -108,3 +109,7 @@ witness.
 
 ORCID [0009-0005-3640-014X](https://orcid.org/0009-0005-3640-014X) ·
 [f-keys.com](https://f-keys.com) · vincegonzalez@me.com
+
+This account is a rename, not a beginning: the work lived under
+`zengineco` from 2024 until August 2026, and the transferred repositories
+redirect here.
