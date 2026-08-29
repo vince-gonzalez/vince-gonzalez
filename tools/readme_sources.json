@@ -1,0 +1,16 @@
+{
+  "orcid": "0009-0005-3640-014X",
+  "npm_maintainer": "vincegonz",
+  "pypi": [
+    "gonzalgo",
+    "mmforge",
+    "loadbearing",
+    "certivl",
+    "ishihara",
+    "apriori",
+    "authorecon",
+    "remapwrap",
+    "keyj"
+  ],
+  "_note": "npm packages are discovered live from npm_maintainer. PyPI has no public per-user listing API, so new PyPI packages must be added to this list by hand; the gate then verifies each one exists before counting it."
+}

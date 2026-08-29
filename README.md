@@ -23,7 +23,7 @@ measured. Published records get cited without anyone confirming what is in
 them.
 
 I build the instruments that check, and then I go and use them. Below is most
-of it. 55 deposited works, 15 packages, and a handful of sites that are up.
+of it. 56 deposited works, 15 packages, and a handful of sites that are up.
 
 ## Formal mathematics
 
@@ -106,7 +106,7 @@ witness.
 
 Nine on PyPI: `gonzalgo` · `mmforge` · `loadbearing` · `certivl` · `ishihara` · `apriori` · `authorecon` · `remapwrap` · `keyj`.
 
-Six on npm: [`@f-keys/tip-widget`](https://www.npmjs.com/package/@f-keys/tip-widget) · [`opticquiz-eye`](https://www.npmjs.com/package/opticquiz-eye) · [`opticquiz-cvd`](https://www.npmjs.com/package/opticquiz-cvd) · [`opticquiz-cvd-mcp`](https://www.npmjs.com/package/opticquiz-cvd-mcp) · [`keyjockey`](https://www.npmjs.com/package/keyjockey) · [`dogefundme`](https://www.npmjs.com/package/dogefundme).
+Six on npm: [`@f-keys/tip-widget`](https://www.npmjs.com/package/@f-keys/tip-widget) · [`dogefundme`](https://www.npmjs.com/package/dogefundme) · [`keyjockey`](https://www.npmjs.com/package/keyjockey) · [`opticquiz-cvd`](https://www.npmjs.com/package/opticquiz-cvd) · [`opticquiz-cvd-mcp`](https://www.npmjs.com/package/opticquiz-cvd-mcp) · [`opticquiz-eye`](https://www.npmjs.com/package/opticquiz-eye).
 
 `keyj` also ships on winget as `com.fkeys.keyj`.
 
