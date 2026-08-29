@@ -53,6 +53,7 @@ Bounds that hold because a machine checked them, not because a paper said so.
 - the Lebesgue universal cover, opaque barriers, and Fejes Toth's point-goalie problem — [certified-covers](https://github.com/vince-gonzalez/certified-covers)
 - odd perfect numbers: a congruence obstruction on the Euler prime, and an exact calculator for Norton's abundancy bound
 - an independent verification of an 11948-point kissing configuration, and maximality results for the Cohn-Li constructions
+- what four verified Rocq developments assume, by source-level axiom census — CompCert, fiat-crypto, Iris, and the Verified Software Toolchain, with axiom reach from 0.0% to 65.6% — [10.5281/zenodo.22162430](https://doi.org/10.5281/zenodo.22162430)
 
 ## The Voynich manuscript
 
