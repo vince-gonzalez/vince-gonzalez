@@ -31,34 +31,41 @@ def fetch(url, tries=4):
 
 
 def npm_packages(maintainer):
-    names, frm = set(), 0
+    """Discover packages via the maintainer search, then CONFIRM each one against
+    the registry's own maintainer list. Search relevance is not proof of ownership."""
+    found, frm = set(), 0
     while True:
         s = fetch("https://registry.npmjs.org/-/v1/search?"
                   f"text={urllib.parse.quote('maintainer:'+maintainer)}&size=250&from={frm}")
         objs = s.get("objects", [])
         for o in objs:
-            nm = o["package"]["name"]
-            # keep only packages this account actually maintains
-            pub = o["package"].get("publisher", {}).get("username")
-            maints = {m.get("username") for m in o.get("maintainers", [])}
-            if pub == maintainer or maintainer in maints or nm.startswith("@f-keys/"):
-                names.add(nm)
+            found.add(o["package"]["name"])
         if len(objs) < 250:
             break
         frm += 250
-    if not names:
-        raise RuntimeError("npm returned zero packages — refusing to write")
-    return sorted(names)
+    owned = []
+    for nm in sorted(found):
+        doc = fetch("https://registry.npmjs.org/" + urllib.parse.quote(nm, safe=""))
+        maints = {m.get("name") for m in (doc.get("maintainers") or [])}
+        if maintainer in maints:
+            owned.append(nm)
+    if not owned:
+        raise RuntimeError("npm returned zero owned packages — refusing to write")
+    return owned
 
 
 def pypi_packages(listed):
-    ok = []
+    """Verify each listed package both EXISTS and is OWNED by this account.
+    Existence alone is not ownership — a common name can belong to a stranger."""
+    markers = [m.lower() for m in CFG.get("ownership_markers", [])]
     for name in listed:
-        try:
-            fetch(f"https://pypi.org/pypi/{name}/json")
-            ok.append(name)
-        except RuntimeError:
-            raise RuntimeError(f"PyPI package '{name}' did not verify — refusing to write")
+        info = fetch(f"https://pypi.org/pypi/{name}/json").get("info", {})
+        blob = " ".join(str(info.get(k)) for k in
+                        ("author", "author_email", "home_page", "project_urls", "maintainer")).lower()
+        if markers and not any(m in blob for m in markers):
+            raise RuntimeError(
+                f"PyPI package '{name}' exists but does NOT appear to belong to this "
+                f"account (no ownership marker in its metadata) — refusing to write")
     return listed  # preserve the curated order
 
 
@@ -83,10 +90,8 @@ def zenodo_works(orcid):
 
 
 def build_packages_section(pypi, npm):
-    def npm_link(n):
-        return f"[`{n}`](https://www.npmjs.com/package/{n})"
     pypi_line = " · ".join(f"`{n}`" for n in pypi)
-    npm_line = " · ".join(npm_link(n) for n in npm)
+    npm_line = " · ".join(f"`{n}`" for n in npm)
     n_p, n_n = len(pypi), len(npm)
     return (
         "## Packages\n\n"

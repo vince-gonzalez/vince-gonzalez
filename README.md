@@ -23,7 +23,7 @@ measured. Published records get cited without anyone confirming what is in
 them.
 
 I build the instruments that check, and then I go and use them. Below is most
-of it. 56 deposited works, 15 packages, and a handful of sites that are up.
+of it. 56 deposited works, 35 packages, and a handful of sites that are up.
 
 ## Formal mathematics
 
@@ -36,11 +36,11 @@ the theorem needed it.
 | [mmforge](https://github.com/vince-gonzalez/mmforge) | avoidable axiom dependencies in Metamath databases |
 | [loadbearing](https://github.com/vince-gonzalez/loadbearing) | what a claim asserts, against what its derivation used |
 
-Six changes merged into [metamath/set.mm](https://github.com/metamath/set.mm)
+Eight changes merged into [metamath/set.mm](https://github.com/metamath/set.mm)
 so far, each removing a dependence on the axiom of choice from a theorem whose
 own hypotheses already ruled it out: `difelsiga`, `fnrndomnum`, `madefi`,
-`sigaclci`, `omeiunle`, and the `fnct`/`dmct`/`ffsrn` family. In one of them
-the entire cause was statement order.
+`disjinfi`, `sigaclci`, `omeiunle`, `fimact`, and the `fnct`/`dmct`/`ffsrn`
+family. In one of them the entire cause was statement order. Two more are open.
 
 I do not total those. Where two repairs feed the same subtree each reads near
 zero alone, and the subtree only leaves the cone when the last of them goes.
@@ -105,9 +105,9 @@ witness.
 
 ## Packages
 
-Nine on PyPI: `gonzalgo` · `mmforge` · `loadbearing` · `certivl` · `ishihara` · `apriori` · `authorecon` · `remapwrap` · `keyj`.
+16 on PyPI: `gonzalgo` · `mmforge` · `loadbearing` · `certivl` · `ishihara` · `authorecon` · `remapwrap` · `keyj` · `axsent` · `legible` · `openapi-drift` · `changewatch` · `moonbeam-miner` · `plumhud` · `saydo` · `opticquiz-cvd`.
 
-Six on npm: [`@f-keys/tip-widget`](https://www.npmjs.com/package/@f-keys/tip-widget) · [`dogefundme`](https://www.npmjs.com/package/dogefundme) · [`keyjockey`](https://www.npmjs.com/package/keyjockey) · [`opticquiz-cvd`](https://www.npmjs.com/package/opticquiz-cvd) · [`opticquiz-cvd-mcp`](https://www.npmjs.com/package/opticquiz-cvd-mcp) · [`opticquiz-eye`](https://www.npmjs.com/package/opticquiz-eye).
+19 on npm: `@f-keys/tip-widget` · `achromatopsia` · `colorblind-mcp` · `cvdplate` · `cvdsafe` · `cvdsafe-mcp` · `cvdsim` · `deutan` · `dichromacy` · `dogefundme` · `keyjockey` · `logmar` · `opticquiz-cvd` · `opticquiz-cvd-mcp` · `opticquiz-eye` · `protanopia` · `safepalette` · `trichromacy` · `tritanopia`.
 
 `keyj` also ships on winget as `com.fkeys.keyj`.
 

@@ -1,16 +1,30 @@
 {
   "orcid": "0009-0005-3640-014X",
   "npm_maintainer": "vincegonz",
+  "ownership_markers": [
+    "vince-gonzalez",
+    "f-keys.com",
+    "vincent gonzalez",
+    "vince gonzalez",
+    "f-keys creative"
+  ],
   "pypi": [
     "gonzalgo",
     "mmforge",
     "loadbearing",
     "certivl",
     "ishihara",
-    "apriori",
     "authorecon",
     "remapwrap",
-    "keyj"
+    "keyj",
+    "axsent",
+    "legible",
+    "openapi-drift",
+    "changewatch",
+    "moonbeam-miner",
+    "plumhud",
+    "saydo",
+    "opticquiz-cvd"
   ],
-  "_note": "npm packages are discovered live from npm_maintainer. PyPI has no public per-user listing API, so new PyPI packages must be added to this list by hand; the gate then verifies each one exists before counting it."
+  "_note": "npm packages are discovered live from npm_maintainer and each is re-checked against the registry's maintainer list. PyPI has no public per-user listing API, so new PyPI packages are added here by hand; the gate then verifies each one both EXISTS and is OWNED (author/homepage/project_urls must match an ownership marker). 'apriori' was removed 2026-09-04: pypi.org/project/apriori belongs to LorenzoPiu, not to this account."
 }
